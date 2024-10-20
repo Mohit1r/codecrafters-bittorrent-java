@@ -3,18 +3,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>io.codecrafters</groupId>
     <artifactId>codecrafters-bittorrent</artifactId>
     <version>1.0</version>
-
     <properties>
-        <maven.compiler.source>23</maven.compiler.source>
-        <maven.compiler.target>23</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source> <!-- Use a valid Java version -->
+        <maven.compiler.target>17</maven.compiler.target> <!-- Use a valid Java version -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>23</java.version>
+        <java.version>17</java.version> <!-- Use a valid Java version -->
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -22,24 +19,25 @@
             <version>2.10.1</version>
         </dependency>
         <dependency>
-            <groupId>com.dampcake</groupId>
-            <artifactId>bencode</artifactId>
-            <version>1.4.1</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.36</version>
         </dependency>
+
+
         <dependency>
             <groupId>com.dampcake</groupId>
             <artifactId>bencode</artifactId>
             <version>1.4.1</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
-                    <finalName>codecrafters-bittorrent</finalName> <!-- Please do not change this final artifact name-->
+                    <finalName>codecrafters-bittorrent</finalName>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
@@ -47,13 +45,11 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <!-- This is the main class of your program which will be executed-->
-                            <mainClass>Main</mainClass>
+                            <mainClass>com.example.Main</mainClass> <!-- Fully Qualified Class Name -->
                         </manifest>
                     </archive>
-                    <outputDirectory>${dir}</outputDirectory>
+                    <outputDirectory>path/to/your/output/directory</outputDirectory> <!-- Replace with a valid path -->
                 </configuration>
-
                 <executions>
                     <execution>
                         <id>make-assembly</id>
@@ -66,5 +62,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
